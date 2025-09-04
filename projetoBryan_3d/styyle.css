@@ -1,0 +1,406 @@
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #4361ee;
+    --secondary: #3a0ca3;
+    --accent: #f72585;
+    --light: #f8f9fa;
+    --dark: #212529;
+    --success: #4cc9f0;
+    --gray: #adb5bd;
+    --light-gray: #e9ecef;
+    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    --smooth: all 0.3s ease-in-out;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e9f2 100%);
+    color: var(--dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#main {
+    width: 100%;
+    max-width: 650px;
+    margin: 20px auto;
+    box-shadow: var(--card-shadow);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background: white;
+}
+
+#main:hover {
+    transform: translateY(-5px);
+}
+
+#geral {
+    width: 100%;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+#header {
+    width: 100%;
+    min-height: 180px;
+    background: linear-gradient(120deg, var(--primary), var(--secondary));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px;
+    position: relative;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+#header::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cpath fill='rgba(255,255,255,0.1)' d='M49.9,-27.2C65.5,-10.7,79.4,10.7,75.8,28.5C72.2,46.3,51,59.5,29.8,66.3C8.6,73.1,-12.7,73.5,-30.4,65.7C-48.1,57.9,-62.3,41.9,-68.8,22.4C-75.3,2.9,-74.1,-20.1,-64.1,-38.2C-54.1,-56.4,-35.3,-69.7,-14.5,-65.2C6.3,-60.6,12.6,-38.2,21.8,-20.8C31,-3.4,43.1,9,49.9,27.2Z' transform='translate(100 100)'/%3E%3C/svg%3E");
+    background-size: contain;
+    opacity: 0.2;
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+#header p {
+    font-size: 16px;
+    max-width: 80%;
+    margin: 0 auto;
+    line-height: 1.5;
+    opacity: 0.9;
+    position: relative;
+}
+
+#header a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--smooth);
+}
+
+#header a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+#formulario_mural {
+    width: calc(100% - 40px);
+    margin: 20px;
+    background: var(--light);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--light-gray);
+}
+
+#formulario_mural h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primary);
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#mural input, #mural textarea {
+    width: 100%;
+    padding: 16px;
+    margin-top: 8px;
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    transition: var(--smooth);
+    font-size: 16px;
+    background: #ffffff;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#mural input:focus, #mural textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+#mural textarea {
+    height: 140px;
+    resize: vertical;
+    min-height: 140px;
+}
+
+label { 
+    display: block; 
+    margin-top: 20px; 
+    font-weight: 600;
+    color: var(--dark);
+    font-size: 16px;
+}
+
+.error-message {
+    color: var(--accent);
+    margin: 8px 0 0;
+    font-size: 14px;
+    font-weight: 500;
+    display: block;
+}
+
+.error-field {
+    border-color: var(--accent) !important;
+}
+
+.submit {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    padding: 16px 35px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 16px;
+    transition: var(--smooth);
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn:hover {
+    background: linear-gradient(to right, var(--secondary), var(--primary));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+}
+
+.btn:active, .btn:disabled {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(67, 97, 238, 0.3);
+}
+
+.btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#recados-container {
+    padding: 0 20px;
+}
+
+.recado {
+    display: flex;
+    margin-bottom: 20px;
+    border-left: 5px solid var(--primary);
+    background: linear-gradient(to right, #ffffff, #f9fafb);
+    padding: 25px;
+    border-radius: 0 16px 16px 0;
+    box-shadow: var(--card-shadow);
+    transition: var(--smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.recado::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(67, 97, 238, 0.05), transparent);
+    opacity: 0;
+    transition: var(--smooth);
+    pointer-events: none;
+}
+
+.recado:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 20px rgba(67, 97, 238, 0.15);
+}
+
+.recado:hover::before {
+    opacity: 1;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.message-content {
+    flex-grow: 1;
+}
+
+.message-author {
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.message-text {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--dark);
+}
+
+.message-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 14px;
+    color: var(--gray);
+}
+
+.message-meta span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.no-messages {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--gray);
+}
+
+.no-messages i {
+    font-size: 50px;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+.no-messages p {
+    font-size: 18px;
+}
+
+#footer {
+    width: 100%;
+    min-height: 60px;
+    background: var(--dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+#footer p {
+    color: #e2e8f0;
+    margin: 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+#footer a {
+    color: var(--success);
+    text-decoration: none;
+    transition: var(--smooth);
+    font-weight: 500;
+}
+
+#footer a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.recado {
+    animation: fadeIn 0.5s ease-out;
+}
+
+#formulario_mural {
+    animation: fadeIn 0.7s ease-out;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    #main {
+        width: 95%;
+        margin: 10px auto;
+    }
+    
+    #header {
+        min-height: 160px;
+        padding: 20px 15px;
+    }
+    
+    #header h1 {
+        font-size: 26px;
+    }
+    
+    #header p {
+        font-size: 15px;
+        max-width: 90%;
+    }
+    
+    #formulario_mural {
+        width: calc(100% - 30px);
+        margin: 15px;
+        padding: 20px;
+    }
+    
+    .recado {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .avatar {
+        margin-bottom: 15px;
+        margin-right: 0;
+    }
+    
+    .btn {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    .message-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
